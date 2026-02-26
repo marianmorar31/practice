@@ -14,7 +14,7 @@ app.use(express.json());
 app.use("/api/users", userRoutes);
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("API server user service is running ✅");
+  res.send("API server user service is runningdadawdawdaw ✅");
 });
 
 app.listen(config.port, () => {
