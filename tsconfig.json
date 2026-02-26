@@ -6,6 +6,10 @@
     "outDir": "./dist",
     "esModuleInterop": true,
     "strict": true,
-    "types": ["node", "jest"]
-  }
+    "skipLibCheck": true,
+    "types": ["node"],
+    "moduleResolution": "node"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }
