@@ -1,6 +1,5 @@
 name: Node.js CI
 
-# Trigger CI on push or pull request to main/master
 on:
   push:
     branches: [ main, master ]
@@ -20,31 +19,25 @@ jobs:
       MONGO_URI: ${{ secrets.MONGO_URI }}
 
     steps:
-      # 1️⃣ Checkout code
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      # 2️⃣ Setup Node.js
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
 
-      # 3️⃣ Install dependencies
       - name: Install dependencies
         run: npm ci
 
-      # 4️⃣ Build TypeScript
       - name: Build TypeScript
         run: npm run build
 
-      # 5️⃣ Run tests with coverage
       - name: Run tests
         run: npm test -- --coverage
 
-      # 6️⃣ Upload coverage report
       - name: Upload coverage report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: coverage-report
           path: coverage
